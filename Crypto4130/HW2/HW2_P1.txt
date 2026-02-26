@@ -1,0 +1,14 @@
+https://en.wikipedia.org/wiki/S-box
+
+This is the S-Box that I used
+Q1 - prove later but i proved it
+
+Q2
+
+a.  (2^56)/(10^6) seconds (first bit always parity)
+
+b. (2^48)/(10^6) seconds (first bit always parity)
+
+c. (26^8)/(10^6) seconds (because theres only 26 letters and theres 8 positions)
+
+
