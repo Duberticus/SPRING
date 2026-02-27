@@ -1,7 +1,16 @@
 https://en.wikipedia.org/wiki/S-box
 
-This is the S-Box that I used
-Q1 - prove later but i proved it
+
+This is the S-Box that I used. its S5 on wikipedia but it is the same principle as using S1
+Q1 
+
+a --- x1 = 000000, x2 = 000001
+ S(x1) XOR S(x2) = 1100 but S(x1 XOR x2) = 1110 which proves the proof 1100 != 1110
+
+b --- x1 = 110111, x2 = 100000
+S(x1) XOR S(x2) = 1101 but S(x1 XOR x2) = 1010 which proves the proof
+
+
 
 Q2
 
@@ -11,4 +20,25 @@ b. (2^48)/(10^6) seconds (first bit always parity)
 
 c. (26^8)/(10^6) seconds (because theres only 26 letters and theres 8 positions)
 
+Part 2:
+Answer :
+1001000100101001011100110100011001011011101111111110110011011001
+912973465BBFECD9 in hex
+Alice Liddel, SSN: 456 123 7568, DoB: November 26, 1865
+
+Report:
+
+Ok so I first watched : https://www.youtube.com/playlist?list=PLBlnK6fEyqRiOCCDSdi6Ok_8PU2f_nkuf
+and went over the DES slides. That allowed me to pretty much do part one without issues. Part two was a little complicated.
+first i got ChatGPT to put all the PC-1, PC-2, and Round shifts(I later found out they were kinda useless) values into a python list. 
+Second I converted all the values of round 15 and round 16 into bianary for easeof access.
+Since the each round key/ sub-key is 48 bits because of PC-2 shortens the length from 56 to 48. 
+So I expanded from 48 to 56 by mapping each bit to its specific positions by using PC-2 (in fancy terms, taking the inverse).
+Check out Decryp.py lines 20 - 30. I did that for both rounds 15 and 16. Expansion leaves open holes of missing bits.
+The missing bits can be bruteforced because its only 2^8. To move on from a round, DES would shift left and to go back its a shit right.
+I compared 16 against 15. After i got the asnwer i shifted back to Round 16 because its the exact same as Round 1(Decryp.py lines 60-63)
+Now that I have 56 bits I got the main key by adding the parity bits(i chose 1 but I think 0 works too, theoretically). They happen after every 7 bits so i jsut told ChatGPT to do that.
+ChatGPT was used for formatting and debugging. I used the 2 links that was on pa2 and also https://www.rapidtables.com/convert/number/binary-to-hex.html to convert binary.
+decrypt was in hex so I had to convert into a string. I also used this pdf thats attached to the github.https://github.com/Duberticus/SPRING/tree/main/Crypto4130/HW2
+(excuse the bad messages)
 
