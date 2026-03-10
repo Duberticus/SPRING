@@ -5,6 +5,8 @@ import http.server
 
 stuff = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
-ip = socket.gethostbyname('www.google.com')
-print(ip)
+stuff.connect(("127.0.0.1", 8989))
+stuff.send(b"hello")
+stuff.close()
+
 

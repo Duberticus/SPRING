@@ -1,0 +1,81 @@
+
+Q1)
+
+A) R1 because that is the limiting factor.
+
+B) 4 million bytes = 4000kB  4000kB/500kBps = 8 seconds
+
+C) 100kbps would be the throughput and the it would be 4000kB/100kBps = 40 seconds
+
+Q2)
+
+It saves both parties money. instead of going to the upstream provider, they would just make an agreement to send each other packets without any overhead cost If every ISP would have to set up servers all around the globe, it would cost them too much money. IXPs make money from ISPs who are members. They are the like a Union with a bunch of members being ISPs with peer agreement.
+
+Q3)
+
+40 TB = 40 x 10^6 mB. 40 x 10^6/100mBps = 400,000 seconds = 6.666 minutes = 111.11 hours. So in summary its not worth it to use the link. Its better to use fedEx 24 hrs < 111 hrs
+
+Q4)
+
+a)
+cs453/index.html 
+
+b)
+HTTP/1.1
+
+c)
+ yes it says connection keep alive
+
+d)
+ not given
+
+e)
+Its a Mozilla/Windows browser. browser type is needed to format HTML.
+
+
+Q5)
+a) the sequence number is the initial bytes already sent in the previous rounds. So the 3rd segment would be 670. Source = 1000. Destination = 2000
+
+b) seq = 750 source = 1000 destination =2000
+
+c) it would send back an acknowledgment for 500 but it will be out of order
+
+d) nothing. If ACK 500 was accepted and ACK 750 was accepted but ACK 670 was dropped, then 670 ACK is implied.
+
+
+
+Q6)
+
+A) [0,1,2] ->[3,4,5] -> [6,7]
+
+
+B) [0,1,2] ->[3,4,5](lost sent packet 4)->[4,5] -> [6,7]
+
+C)[0,1,2] ->[3,4,5](dropped 3 ACK) -> [6,7] 
+nothing happens because 4 was acknowledged so that must mean that 3 was also acknowledged.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
