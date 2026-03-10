@@ -58,6 +58,9 @@ crackKey = bruteForce(k16,k15)
 #11110000011011100011001101011001110000110100011110010010
 
 #ok this is round 15, since round 16 == round 0 shift it to the left agian to get round 16
+#same idea as before. Split string into 2 parts C, D and then shift Left to go forward a round.
+#since we are going there are only 28 shifts in total (bc 28 X 2(spliting bits in 2) = 56) if we go to round 16,
+# it would be like starting from round 0 agian
 c15 = crackKey[:28]
 d15 = crackKey[28:]
 c0 = c15[1:] + [c15[0]]
@@ -67,6 +70,8 @@ cd0 = "".join(c0 + d0)
 print(cd0)
 #11100000110111000110011010110011100001101000111100100101
 
-#Told ChatGPT "after every 7 digits, add a 0" to format
-
+#VVV Told ChatGPT "after every 7 digits, add a 1" to format parity VVV
+#I did not want to count and add parity bits by hand
 #1001000100101001011100110100011001011011101111111110110011011001
+#912973465BBFECD9 in hex
+#Alice Liddel, SSN: 456 123 7568, DoB: November 26, 1865
