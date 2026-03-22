@@ -1,25 +1,35 @@
 import threading
 import socket
 
-def TakeInput(var):
-    if var == 1:
-        print("making new user")
-    if var == 2:
-        print("making ")
-    return
-
-
 
 HOST = "127.0.0.1"
 PORT = 8989
-
+ADDR = (HOST, PORT)
 #TCP connection
-SS = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-SS.bind((HOST, PORT))
-SS.listen()
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+server.bind(ADDR)
 
-while True:
-    client,address = SS.accept()
-    print ('Got connection from client', address )
-    client.send('Enter an alias'.encode()) #client side
-    client.close()
+
+
+def client_handler(conn,address):
+    print(f"{address} connected")
+
+    connected = True
+    while connected:
+        msg = conn.recv(1024).decode('utf-8')
+        #conn.settimeout(10)
+        print('hello')
+
+
+def start():
+    server.listen()
+    while True:
+        conn,address = server.accept()
+        thread = threading.Thread(target =client_handler,args = (conn,address))
+        thread.start()
+        print(threading.active_count() -1 )
+        #print('benchode')    
+    
+print("starting")
+
+start()

@@ -1,21 +1,11 @@
 import socket             
 
-# Create a socket object 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)         
 
+HOST = "127.0.0.1"
+PORT = 8989   
+ADDR = (HOST, PORT)
 # Define the port on which you want to connect 
-port = 8989              
 
-# connect to the server on local computer 
-sock.connect(('127.0.0.1', port)) 
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)     
 
-# receive data from the server and decoding to get the string.
-msg = sock.recv(1024).decode()
-# close the connection 
-
-sock.close()
-
-#sock.connect(('127.0.0.1', port)) 
-#sock.send()
-
-print(msg)
+client.connect(ADDR)   
